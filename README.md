@@ -30,7 +30,7 @@ ng g c <nome-do-component>| ng generate component <nome-do-component>
 // decorators (anotações) @Component do @angular/core será utilizado para configurações
 @Component({
   selector: '<nome-do-seletor>',
-  templateUrl: '<caminho-do-template>',
+  templateUrl: '<caminho-do-template>', // template: `<tags-html>Limitado a 3 linhas no max (boas práticas), caso contrário trabalhar com arquivo próprio html</tags-html>`
   styleUrls: ['<caminho-do-estilo>s']
 })
 ```
@@ -58,5 +58,11 @@ ng g m <nome-do-module>| ng generate module <nome-do-module>
 	],
 })
 ```
-
+### 5 - Diretivas
+```ts
+*ngFor// repetição
+*ngIf // condicional
+[ngClass] // Classes com condicional
+[ngStyle] // adiciona um estilo embutido a uma tag específica
+```
 
