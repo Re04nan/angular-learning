@@ -64,5 +64,16 @@ ng g m <nome-do-module>| ng generate module <nome-do-module>
 *ngIf // condicional
 [ngClass] // Classes com condicional
 [ngStyle] // adiciona um estilo embutido a uma tag específica
+...
+```
+### 6 - Criando um Serviço
+```ts
+// criando um serviço atráves do terminal
+ng g s <nome-do-servico>| ng generate service <nome-do-servico>
+
+decorators (anotações) @Injectable do @angular/core // No Angular a DI (Injeção de Dependência) ocorre atráves do construtor.
+
+//modelo de responsabilidade
+componente -> serviço -> backend (java, c#, php, etc...)
 ```
 
