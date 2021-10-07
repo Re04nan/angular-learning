@@ -76,4 +76,14 @@ decorators (anotações) @Injectable do @angular/core // No Angular a DI (Injeç
 //modelo de responsabilidade
 componente -> serviço -> backend (java, c#, php, etc...)
 ```
+### 7 - Property Binding
+```ts
+//Data Binding
+<template> <- {component}
+	   <- {{valor}} // Interpolation (Interpolação)
+	   <- [propriedade]="valor" // Attribute binding ou bind-propriedade="valor"
+	   -> (evento)="handler"// Event binding
+	   <-> [(ngModel)]="propriedade" // Two way binding
 
+//Quando não existe uma propriedade no elemento, usa-se [attr.colspan]
+```
