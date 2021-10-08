@@ -87,3 +87,23 @@ componente -> serviço -> backend (java, c#, php, etc...)
 
 //Quando não existe uma propriedade no elemento, usa-se [attr.colspan]
 ```
+### 8 - Class e Style Binding
+```ts
+//Instalação do ng2-bootstrap(opcional)
+npm i ng2-bootstrap bootstrap --save
+
+//angular.json
+"styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css"]
+
+//mudança
+#classe (change)="0"
+
+// Property Binding Class
+[class.alert-success]="classe.value == 'alert-success'"
+
+// Interpolação
+class="alert {{ classe.value }}"
+
+//Style Binding
+[style.display]="classe.value == 'alert-danger' ? 'block' : 'none'"
+```
