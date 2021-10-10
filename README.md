@@ -107,3 +107,19 @@ class="alert {{ classe.value }}"
 //Style Binding
 [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'"
 ```
+### 9 - Event Binding
+```ts
+(evento)="<função-disparada>" ou on-evento="<função-disparada>"
+
+// params
+(evento)="<função-disparada($event)>" // $event pega os valores da tag
+
+// disparando evento com uso de variável #
+#<nome-var> // declarando a variável
+(evento)="função(<nome-var>.value)"
+//Sem a variável
+(evento)="função($event.target.value)" 
+
+//Aplicando estilo com Attribute binding
+[class.propriedade]="valor"
+```
