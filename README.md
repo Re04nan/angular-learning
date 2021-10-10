@@ -34,7 +34,7 @@ ng g c <nome-do-component>| ng generate component <nome-do-component>
   styleUrls: ['<caminho-do-estilo>s']
 })
 ```
-### 4 - Módulos no Angular
+### 3 - Módulos no Angular
 ```ts
 // Criando um módulo atráves do terminal
 ng g m <nome-do-module>| ng generate module <nome-do-module>
@@ -58,7 +58,7 @@ ng g m <nome-do-module>| ng generate module <nome-do-module>
 	],
 })
 ```
-### 5 - Diretivas
+### 4 - Diretivas
 ```ts
 *ngFor// repetição
 *ngIf // condicional
@@ -66,7 +66,7 @@ ng g m <nome-do-module>| ng generate module <nome-do-module>
 [ngStyle] // adiciona um estilo embutido a uma tag específica
 ...
 ```
-### 6 - Criando um Serviço
+### 5 - Criando um Serviço
 ```ts
 // criando um serviço atráves do terminal
 ng g s <nome-do-servico>| ng generate service <nome-do-servico>
@@ -76,7 +76,7 @@ decorators (anotações) @Injectable do @angular/core // No Angular a DI (Injeç
 //modelo de responsabilidade
 componente -> serviço -> backend (java, c#, php, etc...)
 ```
-### 7 - Property Binding
+### 6 - Property Binding
 ```ts
 //Data Binding
 <template> <- {component}
@@ -87,7 +87,7 @@ componente -> serviço -> backend (java, c#, php, etc...)
 
 //Quando não existe uma propriedade no elemento, usa-se [attr.colspan]
 ```
-### 8 - Class e Style Binding
+### 7 - Class e Style Binding
 ```ts
 //Instalação do ng2-bootstrap(opcional)
 npm i ng2-bootstrap bootstrap --save
@@ -107,7 +107,7 @@ class="alert {{ classe.value }}"
 //Style Binding
 [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'"
 ```
-### 9 - Event Binding
+### 8 - Event Binding
 ```ts
 (evento)="<função-disparada>" ou on-evento="<função-disparada>"
 
