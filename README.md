@@ -123,3 +123,16 @@ class="alert {{ classe.value }}"
 //Aplicando estilo com Attribute binding
 [class.propriedade]="valor"
 ```
+### 9 - Two-way data binding
+```ts
+// binding de propriedade e evento
+[<propriedade>]="<valor>"
+(input)="<valor> = $event.target.value"
+ou
+[ngModel]="<valor>"
+(ngModelChange)="<valor> = $event"
+
+// two-way data binding 
+[(ngModel)]="<objeto.atributo|valor>" ou bindon-ngModel="<objeto.atributo|valor>" 
+// ngModel é uma diretiva que pertence a FormsModule do @angular/forms
+```

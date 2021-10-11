@@ -20,6 +20,11 @@ export class DataBindingComponent implements OnInit {
   valueActual: string = '';
   valueSave: string = '';
   isMouseOver: boolean = false;
+  
+  person: any = {
+    name: 'Re',
+    age: 20
+  }
 
   getValue(){
     return 1;
