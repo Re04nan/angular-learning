@@ -136,3 +136,18 @@ ou
 [(ngModel)]="<objeto.atributo|valor>" ou bindon-ngModel="<objeto.atributo|valor>" 
 // ngModel é uma diretiva que pertence a FormsModule do @angular/forms
 ```
+### 10 - Input Properties
+```ts
+// Attribute binding
+[<nome-propriedade>]="<valor>"
+
+//Decorator @Input do @angular/core expõem propriedades para onde é chamado, tendo como opcional o parâmetro para passar o nome da propriedade caso seja diferente do nome da variável.
+@Input('<nome-propriedade>') <nome-variável>: tipo = <valor>;
+
+ou 
+
+// também podemos expor a propriedade por meio do @Component metadados
+@Component({
+  inputs: ['<nome-variável>:<nome-propriedade-se-diferente-da-variável>']
+})
+```
