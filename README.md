@@ -151,3 +151,16 @@ ou
   inputs: ['<nome-variável>:<nome-propriedade-se-diferente-da-variável>']
 })
 ```
+### 11 - Output Properties
+```ts
+// EventEmitter e @Output do @angular/core para passar eventos
+@Output('<nome-propriedade>') <nome-variável> = new EventEmitter();
+
+// Emitindo o valor
+this.<nome-variável>.emit({<nome-variável-ouvinte>: this.<nome-variável-emissora>});
+
+// podemos expor a propriedade por meio do @Component metadados sem utilizar o decorater @Output
+@Component({
+  outputs: ['<nome-variável>']
+})
+```

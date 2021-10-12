@@ -21,10 +21,15 @@ export class DataBindingComponent implements OnInit {
   valueSave: string = '';
   isMouseOver: boolean = false;
   courseName: string = 'Angular';
-  
+  startValue = 20;
+
   person: any = {
     name: 'Re',
     age: 20
+  }
+
+  onChangeValue(event: any){
+    console.log(event.newValue);
   }
 
   getValue(){
