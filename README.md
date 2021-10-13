@@ -175,3 +175,9 @@ ngAfterContentChecked // a cada verificação de conteúdo inserido
 ngAfterViewChecked // a cada verificação de conteúdo / conteúdo filho
 ngOnDestroy // antes da diretiva / component ser destruído
 ```
+
+## 📕 Créditos
+- [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
+- [Documentação do Angular](https://angular.io/docs)
+
+<div align="center"><i>by 💙 Renan Marques</i></div>
