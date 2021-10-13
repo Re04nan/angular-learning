@@ -175,6 +175,11 @@ ngAfterContentChecked // a cada verificação de conteúdo inserido
 ngAfterViewChecked // a cada verificação de conteúdo / conteúdo filho
 ngOnDestroy // antes da diretiva / component ser destruído
 ```
+### 13 - Acesso ao DOM e ao Template com ViewChild
+```ts
+// Decorater @ViewChild do @angular/core 
+@ViewChild('<nome-variável-input>') <nome-variável-recebe-input>: HTMLElement // HTMLElement para descobrir o elemento html atráves de um console.log(this.<nome-variável-recebe-input>)
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
