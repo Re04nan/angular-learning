@@ -164,3 +164,14 @@ this.<nome-variável>.emit({<nome-variável-ouvinte>: this.<nome-variável-emiss
   outputs: ['<nome-variável>']
 })
 ```
+### 12 - Ciclo de vida (life-cycle) do Componente
+```ts
+Eventos(Hooks) do @angular/core
+ngOnChanges // antes do ngOnInit e quando valor property-binding é atualizado
+ngOnInit // quando o Component é inicializado
+ngDoCheck // a cada ciclo de verificação de mudanças
+ngAfterContentInit // depois de inserir conteúdo externo na view
+ngAfterContentChecked // a cada verificação de conteúdo inserido
+ngAfterViewChecked // a cada verificação de conteúdo / conteúdo filho
+ngOnDestroy // antes da diretiva / component ser destruído
+```
