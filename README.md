@@ -21,6 +21,9 @@ ng new <nome da aplicacao>
 
 // build do projeto path -> http://localhost:4200/
 ng serve
+
+// alterar porta padrão 4200 do build do projeto
+ng serve --port <número> 
 ```
 ### 2 - Criando novos componentes
 ```ts
