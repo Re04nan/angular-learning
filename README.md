@@ -183,6 +183,27 @@ ngOnDestroy // antes da diretiva / component ser destruído
 // Decorater @ViewChild do @angular/core 
 @ViewChild('<nome-variável-input>') <nome-variável-recebe-input>: HTMLElement // HTMLElement para descobrir o elemento html atráves de um console.log(this.<nome-variável-recebe-input>)
 ```
+### 14 - Style Guide (Guia de estilo) seguindo as boas práticas 
+```ts
+<nome-projeto>.<tipo-arquivo>.<extensão>
+
+//Tipos de arquivos - opcional passar o path de onde o projeto é gerado.
+component ▶ ng g c <nome-component>
+service ▶ ng g s <nome-service>
+directive ▶ ng g d <nome-directive>
+pipe ▶  ng g p <nome-pipe>
+class ▶ ng g class <nome-class>
+interface ▶ ng g i <nome-interface>
+enum ▶ ng g e <nome-enum>
+module ▶ ng g m <nome-module>
+guard ▶ ng g g <nome-guard>
+
+//Algumas extensões
+.css|.scss|.sass|.less ▶ arquivos de estilos
+.html ▶ arquivo html
+.spec.ts ▶ arquivos de testes com typescript
+.ts ▶ arquivos typescript
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
