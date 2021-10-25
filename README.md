@@ -204,6 +204,21 @@ guard ▶ ng g g <nome-guard>
 .spec.ts ▶ arquivos de testes com typescript
 .ts ▶ arquivos typescript
 ```
+### 15 - Boas práticas do Angular com Style Guide
+```ts
+// https://angular.io/guide/styleguide#angular-coding-style-guide
+```
+### 16 - Testes Unitários com ESLint e Jasmine
+```ts
+ng add @angular-eslint/schematics
+ng lint // Escaneia o código, verificar boas práticas do style guide, pequenos erros como ponto e vírgula, entre outros.
+// Jasmine é uma biblioteca de testes BDD - Testes Orientado a Comportamento - https://jasmine.github.io/
+ng test // executar os testes Jasmine
+
+// Karma é uma ferramenta de testes que permite executar cada linha de código do teste em diferentes browser. Permitindo emular e verificar a compatibilidade cross-browser da aplicação. - https://github.com/karma-runner/karma/
+
+ng e2e // executar os testes end-two-end(e2e) - Testes de Integração
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
