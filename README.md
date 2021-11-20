@@ -219,6 +219,61 @@ ng test // executar os testes Jasmine
 
 ng e2e // executar os testes end-two-end(e2e) - Testes de Integração
 ```
+### 17 - Angular CLI
+ - Cria toda a estrutura do projeto.
+ - Gera página HTML inicial, arquivos Typescript iniciais, arquivos CSS e arquivos de testes unitários.
+ - Cria arquivo package.json com todas as dependências do Angular.
+ - Instala todas as dependências do node (npm install).
+ - Configura o Karma para executar os testes unitários com Jasmine.
+ - Configura Protractor para executar os testes end-to-end (E2E).
+ - Inicializa um repositório git no projeto e faz o commit inicial.
+ - Cria todos os arquivos necessários para fazer o build da aplicação para produção.
+
+### 18 - Estrutura diretórios do projeto
+📁 config ➡ diretório que contém configuração para deploy/build e teste.
+
+📁 dist ➡ diretório onde é gerado o build da aplicação. Ignorado pelo git.
+
+📁 e2e ➡ diretório que contém os scripts para testes end-to-end.
+
+📁 node_modules ➡ diretório que contém os pacotes npm da app (package.json). Também ignorado pelo git.
+
+📁 public ➡ diretório genérico que contém um arquivo .npmignore.
+
+📁 src ➡ diretório do código fonte da aplicação. Contém código typescript/javascript, CSS, imagens e templates HTML.
+
+📁 angular-cli.json ➡ arquivo que contém informações sobre o projeto e build de produção, como nome do projeto, config de onde encontrar os arquivos fontes da app, config de testes, etc.
+
+📁 tslint.json ➡ arquivo que contém configurações para fazer lint da app.
+
+### 19 - Estrutura código fonte (SRC)
+```ts
+index.html ➡ // página HTML principal da aplicação, que faz o startup.
+main.ts ➡ //  é o código que carrega a aplicação. Somente deve ser editado caso seja necessário adicionar mais módulos na app (que não dê pra fazer via angular-cli.json).
+polyfills.ts ➡ // contém os imports de libs para compatibilidade com ES6 (biblioteca de suporte).
+tsconfig.json ➡ // contém as configurações do compilador do typescript.
+typings.d.ts ➡ // é usado para declarações de tipos que a app usa + módulo.
+index.ts ➡ // contém o export de todos os arquivos do módulo.
+```
+### 20 - Estrutura package.json: Dependencies
+```ts
+@angular/core ➡ // pacote principal do framework Angular. Contém decorators e metadados, Component, Directive, injeção de dependência e os hooks de clico de vida do Component.
+@angular/common ➡ // Serviços, pipes e diretivas comuns fornecidas pelo time de dev do Angular.
+@angular/compiler ➡ // Template de compilação do angular. Entende o código dos templates e converte em código que faz a app ser executada e renderizada. Desenvolvedores não interagem com esse pacote diretamente (apenas usamos seu código).
+@angular/forms ➡ // Contém todo o código para construção de formulários no angular.
+@angular/platform-browser ➡ // Contém todo o código relacionado ao DOM e ao browser, especialmente as parte que ajudam a renderizar o DOM. Esse pacote também contém o método para fazer o bootstrap da aplicação para builds de produção que pré-compila os templates.
+@angular/platform-browser-dynamic ➡ // Contém os Providers e o método para iniciar as aplicações que compilam templates no lado cliente. Não usa compilação offline. Usada para fazer bootstrap durante desenvolvimento e exemplos plunker.
+@angular/http ➡ //  Fornece o cliente HTTP.
+@angular/router ➡ // Classes de roteamento.
+```
+### 21 - Estrutura package.json: Dependecies: Polyfills
+```ts
+core-js ➡ // biblioteca que permite compatibilidade de engines JS antigas com a especificação do ES 2015, ou seja, emula as funcionalidade do ES 2015 (ES6) e ES7 em browsers que suportam somente ES5.
+reflect-metadata ➡ // dependência compartilhada entre o Angular e o compilador TypeScript. Permite o uso de decorators no código(annotations). Isso permite ao desenvolvedores fazer upgrade no TypeScript sem precisar de fazer upgrade no Angular. Esse é o motivo desta ser uma dependência da aplicação e não do angular.
+rxjs ➡ //  extensão para especificação dos Observables(programação assíncrona). Reactive extensions for JavaScript.
+ts-helpers ➡ //  biblioteca auxiliar que permite otimização de código typescript quando o mesmo é compilado para ES5.
+zone.js ➡ //  extensão (plugins) útil para tarefas assíncronas (chamadas de Zones).
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
