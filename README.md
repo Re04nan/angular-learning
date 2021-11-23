@@ -274,6 +274,39 @@ rxjs ➡ //  extensão para especificação dos Observables(programação assín
 ts-helpers ➡ //  biblioteca auxiliar que permite otimização de código typescript quando o mesmo é compilado para ES5.
 zone.js ➡ //  extensão (plugins) útil para tarefas assíncronas (chamadas de Zones).
 ```
+### 22 - Gerando o build de desenvolvimento
+```ts
+ng build 
+ng build --dev  
+ng build --dev --e=dev 
+ng build --target=development --environment=dev
+
+// Os seguintes arquivos serão gerados
+📁dist > 📁index.html // Código base do HTML root
+        📁main.bundle.js // Contém todo código do projeto + CSS + HTML (legível).
+        📁polyfills.bundle.js // configurações do projeto
+```
+- Útil para integrar o código do Angular com o projeto de backend (PHP, Java, .NET, Python, Ruby etc.)
+- Código que dá pra debugar
+### 23 - Gerando o build de produção
+```ts
+ng build --prod
+ng build --prod --env=prod
+ng build --target=production --environment=prod
+
+// Os mesmos arquivos de build dev são gerados de forma minificada.
+```
+- Obfusca e minifica o código JS da aplicação
+- CSS e templates HTML já minificados e incluídos em main.bundle.js
+```ts
+ http-server para testes que envolve servidor
+
+ //Instalação via npm
+ //https://www.npmjs.com/package/http-server
+ npm install http-server
+
+<diretório> http-server | dist http-server // o código é servido no browser sem precisar configurar um servidor. 
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
