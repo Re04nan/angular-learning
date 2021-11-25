@@ -307,6 +307,56 @@ ng build --target=production --environment=prod
 
 <diretório> http-server | dist http-server // o código é servido no browser sem precisar configurar um servidor. 
 ```
+### 24 - Bibliotecas externas (bootstrap, jquery, materialize, lodash, etc.)
+```ts
+// Bootstrap
+
+npm install --save bootstrap@next // @next para pegar versão 4 mais recente do bootstrap e --save para salvar a dependência direto no package.json
+
+// Pacotes que virão junto
+jquery
+tether // tem como função fazer o intermédio do bootstrap com jquery
+bootstrap 
+
+// Configurações
+📁angular-cli.json
+"styles":[
+"styles.css",
+"../node_modules/bootstrap/dist/css/bootstrap.css"
+],
+"scripts":[
+"../node_modules/jquery/dist/jquery.js",
+"../node_modules/theter/dist/tether.js",
+"../node_modules/bootstrap/dist/bootstrap.js"
+],
+
+// Materialize - //https://www.npmjs.com/package/angular2-materialize
+
+npm install materialize-css --save
+npm install angular2-materialize --save
+
+npm install jquery@^2.2.4 --save
+
+"styles":[
+"../node_modules/materialize-css/dist/css/materialize.css" //opcional, pode optar por utilizar o import direto no Component.
+],
+"scripts":[
+  "../node_modules/jquery/dist/jquery.js",
+ "../node_modules/materialize-css/dist/js/materialize.js"
+]
+
+📁header>index.html
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+
+// Lodash - https://lodash.com/ - Possui funções utilitárias JS
+
+npm install --save lodash
+
+📁Component.ts
+import * as _ from 'lodash';
+
+npm install --save @types/lodash // para fazer a ponte entre o lodash e o typescript
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
