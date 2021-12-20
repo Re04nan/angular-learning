@@ -357,6 +357,24 @@ import * as _ from 'lodash';
 
 npm install --save @types/lodash // para fazer a ponte entre o lodash e o typescript
 ```
+### 25 - Tipos de Diretivas
+```ts
+// Diretivas Estruturais
+
+// Interagem com a view e modificam a estrutura do DOM e/ou código HTML.
+
+*ngFor
+*ngIf
+...
+
+// Diretivas de Atributos
+
+// Interagem com o elemento em que foram aplicadas.
+
+ng-class
+ng-style
+...
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
