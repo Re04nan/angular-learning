@@ -375,6 +375,20 @@ ng-class
 ng-style
 ...
 ```
+### 26 -  Deretiva *ngIf
+```ts
+// Tem a mesma função da condicional IF
+
+⚠️ Cuidado com a performance no código ao utilizar o *ngIf.
+
+// *ngIf x hidden (css)
+
+[hidden] - recomendado para árvore de elementos pequenas. ➡️ E também é menos custoso usar hidden caso o custo de criar a árvore de elementos seja grande.
+
+⚠️Cuidado com a segurança, se envolver condição de "visibilidade", já que é possível ver o hidden pelo console.
+
+*ngIf - recomendado para árvore de elementos grandes.
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
