@@ -385,7 +385,7 @@ ng-style
 
 [hidden] - recomendado para árvore de elementos pequenas. ➡️ E também é menos custoso usar hidden caso o custo de criar a árvore de elementos seja grande.
 
-⚠️Cuidado com a segurança, se envolver condição de "visibilidade", já que é possível ver o hidden pelo console.
+⚠️ Cuidado com a segurança, se envolver condição de "visibilidade", já que é possível ver o hidden pelo console.
 
 *ngIf - recomendado para árvore de elementos grandes.
 ```
