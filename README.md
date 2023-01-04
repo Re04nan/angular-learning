@@ -388,6 +388,29 @@ ng-style
 ⚠️ Cuidado com a segurança, se envolver condição de "visibilidade", já que é possível ver o hidden pelo console.
 
 *ngIf - recomendado para árvore de elementos grandes.
+
+ngSwitch, ngSwitchCase e ngSwitchDefault
+
+⚠️  Quando cria um componente via Angular CLI já importa no módulo automaticamente e o declara, caso faça manualmente, precisa lembrar de colocar. 
+
+Aplicando ngSwitch em barra de navegação:
+
+No componente, criar qual aba(opção) está selecionada pelo usuário.
+
+//propt binding
+[class.active] ="aba == 'home'"
+[class.active] ="aba == 'map'"
+[class.active] ="aba == 'aboult'"
+
+//evento de click
+(click)="aba = 'home'"
+(click)="aba = 'map'"
+(click)="aba = 'aboult'"
+ 
+[ngSwitch]="aba" // conditionExpression 
+*ngSwitchCase="'map'"
+*ngSwitchCase="'aboult'"
+*ngSwitchDefault // náo precisa de valor
 ```
 
 ## 📕 Créditos
