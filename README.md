@@ -410,7 +410,7 @@ No componente, criar qual aba(opção) está selecionada pelo usuário.
 [ngSwitch]="aba" // conditionExpression 
 *ngSwitchCase="'map'"
 *ngSwitchCase="'aboult'"
-*ngSwitchDefault // náo precisa de valor
+*ngSwitchDefault // não precisa de valor
 ```
 
 ## 📕 Créditos
