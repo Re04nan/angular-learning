@@ -395,7 +395,11 @@ ngSwitch, ngSwitchCase e ngSwitchDefault
 
 Aplicando ngSwitch em barra de navegação:
 
-No componente, criar qual aba(opção) está selecionada pelo usuário.
+No componente, criar qual aba(opção) está selecionada pelo usuário:
+
+aba: string = 'home';
+
+No HTML:
 
 //propt binding
 [class.active] ="aba == 'home'"
@@ -411,6 +415,28 @@ No componente, criar qual aba(opção) está selecionada pelo usuário.
 *ngSwitchCase="'map'"
 *ngSwitchCase="'aboult'"
 *ngSwitchDefault // não precisa de valor
+```
+### 27 -  Deretiva *ngFor
+```ts
+Loop For
+
+*ngFor
+
+No componente:
+
+cursos: string[] = [...]
+
+ngOnInit(){
+	for (let i=0; i<this.cursos.length; i++){
+		let curso = this.cursos[i];
+	}
+}
+
+HTML:
+
+<li *ngFor="let curso of cursos, let i = index">
+	{{i + 1}} - {{curso}}
+</li>
 ```
 
 ## 📕 Créditos
