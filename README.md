@@ -438,6 +438,56 @@ HTML:
 	{{i + 1}} - {{curso}}
 </li>
 ```
+### 28 - Diretivas: porquê usar * e tag template
+```ts
+*ngIf
+
+<div *ngIf="mostrarCursos">
+//	Lista de cursos
+</div>
+
+Por "trás dos panos" o Angular faz:
+
+//Removendo o * e usando template
+
+<ng-template [ngIf]="mostrarCursos">
+  <div>Lista de cursos</div>
+</ng-template>
+
+Outras formas:
+
+<div ng-template="ngIf mostrarCursos">
+//	Lista de cursos
+</div>
+
+*ngFor
+
+//Removendo o * e usando template
+
+<ul>
+  <ng-template ngFor [ngForOf]="cursos" let-curso let-i="index">
+    <li>
+      {{ i + 1 }} - {{ curso }}
+    </li>
+  </ng-template>
+</ul>
+
+ngSwitch
+
+//Removendo o * e usando template
+
+<div class="container" [ngSwitch]="aba"  >
+  <ng-template [ngSwitchCase]="'mapa'">
+    <p>Modo Mapa ativado</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'lista'">
+    <p>Modo Lista ativado</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'home'" ngSwitchDefault>
+    <p>Home</p>
+  </ng-template>
+</div>
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
