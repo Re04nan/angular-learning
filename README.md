@@ -422,7 +422,7 @@ Loop For
 
 *ngFor
 
-No componente:
+//No componente:
 
 cursos: string[] = [...]
 
@@ -432,7 +432,7 @@ ngOnInit(){
 	}
 }
 
-HTML:
+//HTML:
 
 <li *ngFor="let curso of cursos, let i = index">
 	{{i + 1}} - {{curso}}
@@ -446,7 +446,7 @@ HTML:
 //	Lista de cursos
 </div>
 
-Por "trás dos panos" o Angular faz:
+//Por "trás dos panos" o Angular faz:
 
 //Removendo o * e usando template
 
@@ -454,7 +454,7 @@ Por "trás dos panos" o Angular faz:
   <div>Lista de cursos</div>
 </ng-template>
 
-Outras formas:
+//Outras formas:
 
 <div ng-template="ngIf mostrarCursos">
 //	Lista de cursos
@@ -487,6 +487,38 @@ ngSwitch
     <p>Home</p>
   </ng-template>
 </div>
+```
+### 29 - Diretiva ngClass
+```ts
+//No componente:
+
+meuFavorito: boolean = false;
+
+  onClick(){
+    this.meuFavorito = !this.meuFavorito;
+  }
+
+//HTML:
+
+<h1>
+  <i class="glyphicon"
+  [class.glyphicon-star-empty]="!meuFavorito"
+  [class.glyphicon-star]="meuFavorito"
+  (click)="onClick()"
+  ></i>
+</h1>
+
+//Indicado uso do ngClass para quando houver mais de uma interação a efeito de evento:
+
+<h1>
+  <i class="glyphicon"
+  [ngClass]="{
+    'glyphicon-star-empty': !meuFavorito,
+    'glyphicon-star': meuFavorito
+  }"
+  (click)="onClick()"
+  ></i>
+</h1>
 ```
 
 ## 📕 Créditos
