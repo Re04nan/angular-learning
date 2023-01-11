@@ -560,6 +560,30 @@ tamanhoFonte: number = 10;
 >
 </button>
 ```
+### 31 - Operador elvis ?
+```ts
+//No componente:
+
+ tarefa: any = {
+    desc: 'Descrição da tarefa',
+    responsavel: {
+      usuario: null
+    }
+    //responsavel : {nome: 'Loiane'}
+  };
+
+ }
+
+//HTML:
+
+<p>Descrição: {{ tarefa.desc }}</p>
+<!--p>Responsável: {{ tarefa.responsavel.nome }}</p-->
+<!--p>Responsável: {{ tarefa.responsavel != null ? tarefa.responsavel.nome : '' }}</p-->
+ou
+<p>Responsável: {{ tarefa.responsavel?.usuario?.nome }}</p>
+
+// Com operador elvis fica mais simples de evitar retorno de valores null e ocasionar erro.
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
