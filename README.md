@@ -520,6 +520,46 @@ meuFavorito: boolean = false;
   ></i>
 </h1>
 ```
+### 30 - Diretiva ngStyle
+```ts
+//No componente:
+
+ativo: boolean = false;
+tamanhoFonte: number = 10;
+
+ mudarAtivo(){
+    this.ativo = !this.ativo;
+ }
+
+//HTML:
+
+// Styles com property binding (style binding)
+
+<button
+  [style.backgroundColor]="ativo ? 'blue' : 'gray'"
+  [style.color]="ativo ? 'white' : 'black'"
+  [style.fontWeight]="ativo ? 'bold' : 'normal'"
+  [style.fontSize]="tamanhoFonte + 'px'"
+  (click)="mudarAtivo()"
+>
+
+// Mudar atributo 'ativo'
+</button>
+<br>
+<input type="text" [(ngModel)]="tamanhoFonte">
+
+// Styles com diretiva ngStyle
+<button
+  [ngStyle]="{
+    'backgroundColor': (ativo ? 'blue' : 'gray'),
+    'color': (ativo ? 'white' : 'black'),
+    'fontWeight': (ativo ? 'bold' : 'normal'),
+    'fontSize': tamanhoFonte + 'px'
+  }"
+  (click)="mudarAtivo()"
+>
+</button>
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
