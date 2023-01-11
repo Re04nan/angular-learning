@@ -569,7 +569,7 @@ tamanhoFonte: number = 10;
     responsavel: {
       usuario: null
     }
-    //responsavel : {nome: 'Loiane'}
+    //responsavel : {nome: ''}
   };
 
  }
