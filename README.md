@@ -584,6 +584,23 @@ ou
 
 // Com operador elvis fica mais simples de evitar retorno de valores null e ocasionar erro.
 ```
+### 32 - ng-content
+```ts
+//Exibe o conteúdo conforme seus seletores:
+
+//HTML:
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <ng-content select=".titulo"></ng-content>
+  </div>
+  <div class="panel-body">
+    <ng-content select=".corpo"></ng-content>
+  </div>
+</div>
+
+// Mais de um seletor/select igual o Angular irá concatenar..
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
