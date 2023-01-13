@@ -601,6 +601,41 @@ ou
 
 // Mais de um seletor/select igual o Angular irá concatenar..
 ```
+### 33 - Criando uma diretiva de atributo:
+ElementRef e Renderer
+```ts
+// ElementRef - Faz referência ao elemento do DOM
+// Renderer - Renderizador responsável por fazer modificações no DOM
+// No componente/diretiva:
+
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: 'p[fundoAmarelo]'
+})
+export class FundoAmareloDirective {
+
+  constructor(
+    private _elementRef: ElementRef,
+    private _renderer: Renderer2
+    ) {
+    // A maneira comentada abaixo deve ser evitada de utilizar, por motivo de abrir brecha para ataques devido à manipulação do DOM
+    //console.log(this._elementRef);
+    //this._elementRef.nativeElement.style.backgroundColor = 'yellow';
+    //console.log(this._elementRef);
+    //this._elementRef.nativeElement.style.backgroundColor = 'yellow';
+    this._renderer.setStyle(this._elementRef.nativeElement, 'background-color', 'yellow');
+  }
+}
+
+//HTML:
+
+<p fundoAmarelo >
+  Texto com fundo amarelo.
+</p>
+
+<button fundoAmarelo>Botão com fundo amarelo.</button>
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
