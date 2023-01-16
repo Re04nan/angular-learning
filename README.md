@@ -636,6 +636,56 @@ export class FundoAmareloDirective {
 
 <button fundoAmarelo>Botão com fundo amarelo.</button>
 ```
+### 34 - Criando uma diretiva:
+HostListener e HostBinding
+```ts
+// @HostListener('nomedoevento') - escutar o elemento hospedeiro
+// @HostBinding('style.backgroundColor') - permite a associação da diretiva a um determinado atributo HTML
+// No componente/diretiva:
+
+import { Directive, HostListener, HostBinding, ElementRef, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: '[highlightMouse]'
+})
+export class HighlightMouseDirective {
+
+  @HostListener('mouseenter') onMouseOver(){
+    /*this._renderer.setElementStyle(
+      this._elementRef.nativeElement,
+      'background-color', 'yellow'
+      );*/
+      this.backgroundColor = 'yellow';
+  }
+
+  @HostListener('mouseleave') onMouseLeave(){
+    /*this._renderer.setElementStyle(
+      this._elementRef.nativeElement,
+      'background-color', 'white'
+      );*/
+      this.backgroundColor = 'white';
+  }
+
+  //@HostBinding('style.backgroundColor') backgroundColor: string;
+  @HostBinding('style.backgroundColor') get setColor(){
+    //codigo extra;
+    return this.backgroundColor;  
+  }
+  private backgroundColor: string;
+
+  constructor(
+    //private _elementRef: ElementRef,
+    //private _renderer: Renderer
+    ) { }
+}
+
+//HTML:
+
+<p highlightMouse>
+  Texto com highlight quando passo o mouse.
+</p>
+```
+
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
