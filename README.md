@@ -636,8 +636,7 @@ export class FundoAmareloDirective {
 
 <button fundoAmarelo>Botão com fundo amarelo.</button>
 ```
-### 34 - Criando uma diretiva:
-HostListener e HostBinding
+### 34 - Diretivas: HostListener e HostBinding
 ```ts
 // @HostListener('nomedoevento') - escutar o elemento hospedeiro
 // @HostBinding('style.backgroundColor') - permite a associação da diretiva a um determinado atributo HTML
@@ -683,6 +682,41 @@ export class HighlightMouseDirective {
 
 <p highlightMouse>
   Texto com highlight quando passo o mouse.
+</p>
+```
+### 35 - Diretivas: input e Property Binding
+```ts
+import { Directive, HostListener, HostBinding,
+  Input } from '@angular/core';
+
+@Directive({
+  selector: '[highlight]'
+})
+export class HighlightDirective {
+
+  @HostListener('mouseenter') onMouseOver(){
+      this.backgroundColor = this.highlightColor;
+  }
+
+  @HostListener('mouseleave') onMouseLeave(){
+      this.backgroundColor = this.defaultColor;
+  }
+
+  @HostBinding('style.backgroundColor') backgroundColor: string;
+
+  @Input() defaultColor: string = 'white';
+  @Input('highlight') highlightColor: string = 'yellow';
+
+  constructor() { }
+
+  ngOnInit(){
+    this.backgroundColor = this.defaultColor;
+  }
+}
+
+//HTML:
+<p [highlight]="'red'" [defaultColor]="'grey'">
+  Texto com highlight com cores customizadas.
 </p>
 ```
 
