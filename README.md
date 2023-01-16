@@ -686,6 +686,8 @@ export class HighlightMouseDirective {
 ```
 ### 35 - Diretivas: input e Property Binding
 ```ts
+// No componente/diretiva:
+
 import { Directive, HostListener, HostBinding,
   Input } from '@angular/core';
 
@@ -718,6 +720,56 @@ export class HighlightDirective {
 <p [highlight]="'red'" [defaultColor]="'grey'">
   Texto com highlight com cores customizadas.
 </p>
+```
+### 36 - Diretiva ngElse customizada
+```ts
+// No componente/diretiva:
+// hasView - especie de cache para não precisar construir ou desconstruir sempre o template mesmo que o valor mude.
+
+import { Directive, Input,
+  TemplateRef, ViewContainerRef } from '@angular/core';
+
+@Directive({
+  selector: '[ngElse]'
+})
+export class NgElseDirective {
+
+  @Input() set ngElse(condition: boolean){
+    if (!condition){
+      this._viewContainerRef.createEmbeddedView(this._templateRef);
+    } else {
+      this._viewContainerRef.clear();
+    }
+  }
+
+  constructor(
+    private _templateRef: TemplateRef<any>,
+    private _viewContainerRef: ViewContainerRef
+  ) { }
+}
+
+//HTML:
+<h5>Diretiva Estrutura customizada - ngElse</h5>
+
+<div *ngIf="mostrarCursos" >
+  Lista de cursos aqui.
+</div>
+<div *ngElse="mostrarCursos" >
+  Não existem cursos para serem listados.
+</div>
+
+<br>
+<button (click)="onMostrarCursos()">
+  Mostrar ou esconder cursos
+</button>
+<br>
+
+<!-- Para Angular v4+, usar <ng-template></ng-template> no lugar de <template></template> -->
+<ng-template [ngElse]="mostrarCursos">
+  <div>
+    Não existem cursos para serem listados.
+  </div>
+</ng-template>
 ```
 
 
