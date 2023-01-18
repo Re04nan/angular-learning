@@ -771,6 +771,19 @@ export class NgElseDirective {
   </div>
 </ng-template>
 ```
+### 37 - Introdução a Serviços (Services)
+```ts
+/*
+Buscar/Enviar dados ao Servidor:
+Componente -> Serviços(Service) ⚙️ Pode ser injetado em outras classes -> Backend(Node.JS, Java, .NET, Ruby, Python, etc.)
+
+Serviços também é utilizado para não repetir códigos na aplicação, de forma a fornecer a lógica de negócio para os componentes que precisar, assim como classes utilitários.
+
+Conceito DRY - Don't Repeat Yourself!
+
+Componente tem que ser reponsável apenas pela interação da tela com o usuário.
+*/
+```
 
 
 ## 📕 Créditos
