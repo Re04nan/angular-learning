@@ -784,7 +784,51 @@ Conceito DRY - Don't Repeat Yourself!
 Componente tem que ser reponsável apenas pela interação da tela com o usuário.
 */
 ```
+### 38 - Criação de Serviços (Services) manualmente
+```ts
+// Service
+export class CursosService {
+    getCursos() {
+        return ['Angular 2', 'Java', 'Phonegap'];
+    }
+}
 
+// Componente
+import { Component, OnInit } from '@angular/core';
+
+import { CursosService } from './cursos.service';
+
+@Component({
+  selector: 'app-cursos',
+  templateUrl: './cursos.component.html',
+  styleUrls: ['./cursos.component.css'],
+  providers: [CursosService]
+})
+export class CursosComponent implements OnInit {
+
+  cursos: string[] = [];
+  cursosService: CursosService;
+
+  // Primeiro a ser executado
+  constructor() { 
+    this.cursosService = new CursosService();
+  }
+
+  // ngOnInit método executado quando a classe é inicializada.
+  ngOnInit() {
+    this.cursos = this.cursosService.getCursos();
+  }
+}
+
+// HTML
+<h5>Lista de cursos</h5>
+
+<ul>
+  <li *ngFor="let curso of cursos">
+    {{ curso }}
+  </li>
+</ul>
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
