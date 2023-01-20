@@ -899,6 +899,65 @@ export class AppModule { }
 // HTML
 ...
 ```
+### 40 - Escopo de serviços e módulos (Singleton x várias instâncias)
+```ts
+// Dois componentes utilizando o mesmo service, ocorre apenas uma única chamada (Singleton) ao serviço.
+
+// Service
+import { Injectable } from '@angular/core';
+
+@Injectable() 
+export class CursosService {
+    ...
+    constructor(){
+    	// Para ver pelo console quantas vezes o service é chamado.
+    	console.log('CursosService');
+    }
+}
+
+// Componente
+@Component({
+  selector: 'app-criar-curso',
+  templateUrl: './criar-curso.component.html',
+  styleUrls: ['./criar-curso.component.css'],
+  // Fara com que seja instâncias diferentes.
+  providers: [CursosService]
+})
+
+// Módulo de funcionalidade - criado dentro do escopo do componente que será utilizado
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
+...
+
+@NgModule({
+  ...,
+  exports: [CriarCursoComponent]//,
+  //providers: [CursosService]
+})
+
+// Módulo Root - app.module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+...
+
+@NgModule({
+  ...,
+  //providers: [CursosService]
+})
+
+// HTML
+<h5>Compartilhando um serviço entre componentes</h5>
+
+<input type="text" #cursoInput>
+<button (click)="onAddCurso(cursoInput.value)">Add Curso</button>
+
+<ul>
+  <li *ngFor="let curso of cursos">
+    {{ curso }}
+  </li>
+</ul>
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
