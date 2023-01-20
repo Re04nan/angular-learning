@@ -829,6 +829,76 @@ export class CursosComponent implements OnInit {
   </li>
 </ul>
 ```
+### 39 - Injeção de Dependência (DI)
+Usando o serviço em um componente
+```ts
+// Service
+import { Injectable } from '@angular/core';
+
+// @Injectable() - Diz ao Angular que é uma classe injetável.
+@Injectable() 
+export class CursosService {
+    private cursos: string[] = ['Angular 2', 'Java', 'Phonegap'];
+    
+    constructor(){
+    }
+}
+
+// Componente
+import { Component, OnInit } from '@angular/core';
+
+import { CursosService } from './cursos.service';
+
+@Component({
+  selector: 'app-cursos',
+  templateUrl: './cursos.component.html',
+  styleUrls: ['./cursos.component.css'],
+  providers: [CursosService]
+})
+export class CursosComponent implements OnInit {
+
+  cursos: string[] = [];
+  //cursosService: CursosService;
+
+  // private - no construtor faz com que um service seja um atributo da classe componente automaticamente.
+  constructor(private cursosService: CursosService) {
+     //this.cursosService = _cursosService;
+  }
+
+  ngOnInit() {
+    this.cursos = this.cursosService.getCursos();
+
+    CursosService.criouNovoCurso.subscribe(
+      curso => this.cursos.push(curso)
+    );
+  }
+}
+
+// app.module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { CursosModule } from './cursos/cursos.module';
+import { CursosService } from './cursos/cursos.service';
+...
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+  ...
+  ],
+  // Nota: Como a classe service foi criada manualmente, é necessário também adicionar em providers nas configurações do app.module.ts
+  providers: [CursosService],
+  ...
+})
+export class AppModule { }
+
+// HTML
+...
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
