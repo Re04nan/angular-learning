@@ -958,6 +958,34 @@ import { NgModule } from '@angular/core';
   </li>
 </ul>
 ```
+### 41 - Comunicação entre componentes usando serviços (broadcast de eventos)
+```ts
+// Mesmo com duas instancias diferentes ainda pode ocorrer comunicação entre ambas ou mais serviços
+// Service
+import { EventEmitter } from '@angular/core';
+...
+ static criouNovoCurso = new EventEmitter<string>();
+
+// Componentes
+...
+// CursosComponent
+ ngOnInit() {
+    this.cursos = this.cursosService.getCursos();
+
+    CursosService.criouNovoCurso.subscribe(
+      curso => this.cursos.push(curso)
+    );
+  }
+// ReceberCursoCriadoComponent
+  ngOnInit() {
+    this.cursosService.emitirCursoCriado.subscribe(
+      cursoCriado => this.curso = cursoCriado
+    );
+  }
+
+// HTML
+...
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
