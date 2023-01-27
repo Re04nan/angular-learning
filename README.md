@@ -1055,6 +1055,38 @@ livro: any = {
 <p>Data Lançamento: {{ livro.dataLancamento | date:'dd-MMM-yyyy' }}</p>
 <p>Url: {{ livro.url }}</p>
 ```
+### 44 - Criando um Pipe
+```ts
+// ng g p nome-arquivo ou ng g pipe nome-arquivo
+// Componentes, diretivas e pipes também são adicionados em declarations no app.module.t
+
+// Componente
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'camelCase'
+})
+export class CamelCasePipe implements PipeTransform {
+
+  transform(value: any, args?: any): any {
+    let values = value.split(' ');
+    let result = '';
+
+    for (let v of values){
+      result += this.capitalize(v) + ' ';
+    }
+    return result;
+  }
+  
+  capitalize(value: string){
+    return value.substr(0,1).toUpperCase() +
+      value.substr(1).toLowerCase();
+  }
+
+}
+// HTML
+<p>Título: {{ livro.titulo | uppercase | lowercase | camelCase }}</p>
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
