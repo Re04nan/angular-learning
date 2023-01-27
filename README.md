@@ -1032,6 +1032,29 @@ import { LogService } from './shared/log.service';
 // HTML
 ...
 ```
+### 43 - Pipes (usando pipes, parametros e pipes aninhados)
+```ts
+// Pipes (|) - transforma um valor dentro de um template
+// doc -> https://angular.io/api?query=pipe
+// Componente
+livro: any = {
+    titulo: 'Learning JavaScript Data Structures and Algorithms 2nd ed',
+    rating: 4.54321,
+    numeroPaginas: 314,
+    preco: 44.99,
+    dataLancamento: new Date(2016, 5, 23),
+    url: 'http://a.co/glqjpRP'
+  };
+// HTML
+<h5>Exemplos de Pipes</h5>
+
+<p>Título: {{ livro.titulo | uppercase | lowercase | camelCase }}</p>
+<p>Estrelas: {{ livro.rating | number:'1.1-1' }}</p>
+<p>Páginas: {{ livro.numeroPaginas | number }}</p>
+<p>Preço: {{ livro.preco | currency:'BRL':true }}</p>
+<p>Data Lançamento: {{ livro.dataLancamento | date:'dd-MMM-yyyy' }}</p>
+<p>Url: {{ livro.url }}</p>
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
