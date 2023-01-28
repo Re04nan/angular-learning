@@ -1087,6 +1087,36 @@ export class CamelCasePipe implements PipeTransform {
 // HTML
 <p>Título: {{ livro.titulo | uppercase | lowercase | camelCase }}</p>
 ```
+### 45 - Aplicando Locale (internacionalização) nos Pipes
+```ts
+// Por padrão o Angular utiliza o Inglês Americano
+
+// app.module
+import { NgModule, LOCALE_ID } from '@angular/core';
+...
+  providers: [
+    /*{
+      provide: LOCALE_ID,
+      useValue: 'pt-BR'
+    }*/
+     SettingsService,
+    {
+      provide: LOCALE_ID,
+      deps: [SettingsService],
+      useFactory: ptbrLocale
+    } 
+
+// serviço
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class SettingsService {
+  constructor() { }
+  getLocale(){
+    return  'pt-BR';
+  }
+}
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
