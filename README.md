@@ -1119,7 +1119,8 @@ export class SettingsService {
 ```
 ### 46 - Pipes Puros (Criando um Pipe de Filtro)
 ```ts
-// ⚠️ Não utilizar em produção
+// ⚠️ Não utilizar em produção, pipes não são indicados para fazer order by ou filtros.
+// Pipe puro - não olha as modificações do valor passado no objeto!
 // Componente
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -1149,6 +1150,47 @@ export class FiltroArrayPipe implements PipeTransform {
 
 <ul>
     <li *ngFor="let liv of livros | filtroArray:filtro">
+        {{ liv }}
+    </li>
+</ul>
+```
+### 47 - Pipes Impuros
+```ts
+// ⚠️ Não utilizar em produção, pipes não são indicados para fazer order by ou filtros.
+// Pipe impuro - mesmo valor modificado o pipe continua atualizando conforme mudanças do objeto.
+// Componente
+import { Pipe, PipeTransform } from '@angular/core';
+
+import { FiltroArrayPipe } from './filtro-array.pipe';
+
+@Pipe({
+  name: 'filtroArrayImpuro',
+  pure: false // por padrão todos pipes tem valor pure como true.
+})
+export class FiltroArrayImpuroPipe extends FiltroArrayPipe {
+
+}
+// Componente - método (filtro correto)
+ obterCursos() {
+    if (this.livros.length === 0 || this.filtro === undefined
+    || this.filtro.trim() === '') {
+      return this.livros;
+    }
+    return this.livros.filter(
+       v => v.toLocaleLowerCase().includes(this.filtro.toLocaleLowerCase())
+    );
+  }
+// HTML
+<h5>Pipe Impuro</h5>
+<ul>
+    <li *ngFor="let liv of livros | filtroArrayImpuro:filtro">
+        {{ liv }}
+    </li>
+</ul>
+
+<h5>Maneira correta de usar filtro nos projetos</h5>
+<ul>
+    <li *ngFor="let liv of obterCursos()">
         {{ liv }}
     </li>
 </ul>
