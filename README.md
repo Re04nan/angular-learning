@@ -1195,6 +1195,23 @@ export class FiltroArrayImpuroPipe extends FiltroArrayPipe {
     </li>
 </ul>
 ```
+### 48 - Pipes Async (Assíncrono)
+```ts
+// Evita erro caso demore obter um retorno.
+// O pipe async faz com que obtemos o valor depois do time definido e não a Promise (promessa) ou Observable (observador) para programação reativa.
+// Componente
+valorAsync = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Valor assíncrono'), 2000);
+  });
+
+  valorAsync2 = interval(2000)
+  .pipe(
+    map(valor => 'Valor assíncrono 2')
+  );
+// HTML
+<p>{{ valorAsync | async }}</p>
+<p>{{ valorAsync2 | async }}</p>
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
