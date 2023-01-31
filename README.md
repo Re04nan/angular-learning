@@ -1117,6 +1117,42 @@ export class SettingsService {
   }
 }
 ```
+### 46 - Pipes Puros (Criando um Pipe de Filtro)
+```ts
+// ⚠️ Não utilizar em produção
+// Componente
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'filtroArray'
+})
+export class FiltroArrayPipe implements PipeTransform {
+  transform(value: any, args?: any): any {
+    if (value.length === 0 || args === undefined){
+      return value;
+    }
+    let filter = args.toLocaleLowerCase();
+    return value.filter(
+      v => v.toLocaleLowerCase().includes(filter)
+    );
+  }
+}
+
+// HTML
+<input type="text" [(ngModel)]="filtro">
+
+<br>
+<input type="text" #novoValor>
+<button (click)="addCurso(novoValor.value)">Add Curso</button>
+
+<h5>Pipe Puro</h5>
+
+<ul>
+    <li *ngFor="let liv of livros | filtroArray:filtro">
+        {{ liv }}
+    </li>
+</ul>
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
