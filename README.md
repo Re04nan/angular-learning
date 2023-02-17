@@ -1212,6 +1212,11 @@ valorAsync = new Promise((resolve, reject) => {
 <p>{{ valorAsync | async }}</p>
 <p>{{ valorAsync2 | async }}</p>
 ```
+### 49 - Rotas: Introdução
+```ts
+// Single Page Applications (SPA) - Única página.
+   :id/contact/...
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
