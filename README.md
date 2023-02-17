@@ -1255,6 +1255,11 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
     <router-outlet></router-outlet>
 </div>
 ```
+### 52 - Rotas: Aplicando CSS em rotas ativas
+```ts
+// app.component.html
+routerLinkActive="active" // routerLinkActive adiciona estilo a rota, como ativa.
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
