@@ -1217,6 +1217,28 @@ valorAsync = new Promise((resolve, reject) => {
 // Single Page Applications (SPA) - Única página.
    :id/contact/...
 ```
+### 50 - Rotas: Configurando rotas simples
+```ts
+// app.routing.ts
+import { Routes, RouterModule } from '@angular/router';
+
+const APP_ROUTES: Routes = [
+    { path: 'cursos', component: CursosComponent },
+    { path: 'curso/:id', component: CursoDetalheComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'naoEncontrado', component: CursoNaoEncontradoComponent },
+    { path: '', component: HomeComponent }
+];
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+
+// forChield
+
+// app.component.html para redenrizar a rota dentro da tag:
+<router-outlet></router-outlet>
+
+⚠️<base href="/"> // No html ao adicionar o base, você pode mudar o valor para configurar um namespace para as rotas. Se colocar href="/login" não significa que irá redirecionar pra rota de login. É apenas o nome do namespace. Nesse caso o app ficaria localhost:porta/login/login - caso a rota de login seja ativada.
+```
 
 ## 📕 Créditos
 - [Curso de Angular da Loiane Groner](https://loiane.training/cursos)
